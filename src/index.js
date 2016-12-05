@@ -5,28 +5,39 @@ import SearchBar from './components/search_bar';
 import VideoList from './components/video_list';
 import VideoDetail from './components/video_detail';
 const API_KEY = 'AIzaSyCCxViVe7c5DApoDIpCpxI5dtEl6Xx-19c';
+// const API_KEY = 'AIzaSyBVLXNNekLd7NZgtQ0I0632e1ujNmpHAJs';
 
 // create a new component.
-//this produce some HTML
+// this produce some HTML
 class App extends Component {
   constructor(props) {
     super(props);
 
-    this.state = { videos: [] };
+    this.state = {
+      videos: [],
+      selectedVideo: null
+     };
 
-    YTSearch({key: API_KEY, term: 'surfboards'}, videos => {
+    YTSearch({key: API_KEY, term: 'snowboard'}, (videos) => {
       // ES6 { videos: videos } - works when key and propery are the same veriable name.
-      this.setState({ videos });
+      // when ever setting state the component renders again.
+      this.setState({
+        videos: videos,
+        selectedVideo: videos[0]
+       });
     });
   }
   // every class component needs a render method.
   // passing prop videos to VideoList.
+  // passing onVideoSelect from App to VideoList to VideoListItem
   render () {
     return (
       <div>
         <SearchBar />
-        <VideoDetail video={this.state.videos[0]}/>
-        <VideoList videos={this.state.videos} />
+        <VideoDetail video={this.state.selectedVideo}/>
+        <VideoList
+          onVideoSelect={selectedVideo => this.setState({selectedVideo})}
+          videos={this.state.videos} />
       </div>
     );
   }
