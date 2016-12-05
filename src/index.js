@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import YTSearch from 'youtube-api-search';
 import SearchBar from './components/search_bar';
+import VideoList from './components/video_list';
 const API_KEY = 'AIzaSyCCxViVe7c5DApoDIpCpxI5dtEl6Xx-19c';
 
 // create a new component.
@@ -18,10 +19,12 @@ class App extends Component {
     });
   }
   // every class component needs a render method.
+  // passing prop videos to VideoList.
   render () {
     return (
       <div>
         <SearchBar />
+        <VideoList videos={this.state.videos} />
       </div>
     );
   }
