@@ -18,7 +18,11 @@ class App extends Component {
       selectedVideo: null
      };
 
-    YTSearch({key: API_KEY, term: 'surfboards'}, (videos) => {
+    this.videoSearch('surfboards');
+  }
+
+  videoSearch(term) {
+    YTSearch({key: API_KEY, term: term}, (videos) => {
       // ES6 { videos: videos } - works when key and propery are the same veriable name.
       // when ever setting state the component renders again.
       this.setState({
@@ -27,13 +31,14 @@ class App extends Component {
        });
     });
   }
+
   // every class component needs a render method.
   // passing prop videos to VideoList.
   // passing onVideoSelect from App to VideoList to VideoListItem
   render () {
     return (
       <div>
-        <SearchBar />
+        <SearchBar onSearchTermChange={(term) => this.videoSearch(term)} />
         <VideoDetail video={this.state.selectedVideo}/>
         <VideoList
           onVideoSelect={selectedVideo => this.setState({selectedVideo})}
