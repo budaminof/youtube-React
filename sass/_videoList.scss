@@ -1,0 +1,19 @@
+@import 'variables';
+
+.list-group-item {
+  cursor: pointer;
+  padding-bottom: 20px;
+}
+
+.list-group-item:hover {
+  background-color: $videoBackGround;
+}
+
+.video-item img {
+  max-width: 64px;
+}
+
+.list-group {
+  padding-bottom: 20px;
+  top: 0px;
+}

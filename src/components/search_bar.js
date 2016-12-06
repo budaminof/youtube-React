@@ -8,7 +8,7 @@ class SearchBar extends Component {
   }
   render () {
     return (
-      <div className="search-bar">
+      <div className="search-bar col-md-8">
         <input
         value={this.state.term}
         onChange={eventObj => this.onInputChange(eventObj.target.value)} />
