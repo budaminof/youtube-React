@@ -1,6 +1,6 @@
 ###Learning React###
 
-I am used git@github.com:StephenGrider/ReduxSimpleStarter.git as a boilerplate, and added SASS and tried added nav and footer as functional components.
+I used git@github.com:StephenGrider/ReduxSimpleStarter.git as a boilerplate, and added SASS and tried added nav and footer as functional components.
 
 
 ```
